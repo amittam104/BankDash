@@ -3,3 +3,14 @@
   margin: 0;
   box-sizing: inherit;
 }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+}

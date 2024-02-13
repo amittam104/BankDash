@@ -14,3 +14,29 @@ body {
   line-height: 1;
   font-weight: 400;
 }
+
+/* Navigation Panel */
+.navigation-panel {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  display: inline-block;
+}
+
+/* Main */
+.container {
+  display: inline-block;
+  background-color: #f5f7fa;
+}
+
+.summary {
+  display: flex;
+}

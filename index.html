@@ -14,7 +14,7 @@
     <title>BankDash</title>
   </head>
   <body>
-    <nav>
+    <nav class="navigation-panel">
       <svg
         width="39"
         height="36"
@@ -22,6 +22,7 @@
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
+        class="logo"
       >
         <rect
           width="38"
@@ -49,42 +50,51 @@
           />
         </defs>
       </svg>
-      <h2>BankDash</h2>
-      <h2>Overview</h2>
-      <input type="text" name="search" placeholder="Search for something" />
-      <button>
-        <svg
-          width="22"
-          height="20"
-          viewBox="0 0 22 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clip-path="url(#clip0_105_455)">
-            <path
-              d="M21.2435 18.2109L16.3863 13.6094C17.5903 12.2188 18.316 10.4375 18.316 8.49609C18.316 4.04297 14.5019 0.429688 9.80142 0.429688C5.09678 0.429688 1.28688 4.04297 1.28688 8.49609C1.28688 12.9492 5.09678 16.5625 9.80142 16.5625C11.8507 16.5625 13.7268 15.8789 15.1946 14.7383L20.0519 19.3359C20.3817 19.6484 20.9136 19.6484 21.2435 19.3359C21.5733 19.0273 21.5733 18.5195 21.2435 18.2109ZM9.80142 14.957C6.03688 14.957 2.97742 12.0586 2.97742 8.49609C2.97742 4.93359 6.03688 2.03125 9.80142 2.03125C13.5618 2.03125 16.6254 4.93359 16.6254 8.49609C16.6254 12.0586 13.5618 14.957 9.80142 14.957Z"
-              fill="#718EBF"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_105_455">
-              <rect
-                width="21.1111"
-                height="20"
-                fill="white"
-                transform="translate(0.833328)"
+      <h2 class="bankdash">BankDash</h2>
+      <h2 class="nav-header">Overview</h2>
+      <div class="nav-search-box">
+        <button class="nav-search">
+          <svg
+            width="22"
+            height="20"
+            viewBox="0 0 22 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon--search"
+          >
+            <g clip-path="url(#clip0_105_455)">
+              <path
+                d="M21.2435 18.2109L16.3863 13.6094C17.5903 12.2188 18.316 10.4375 18.316 8.49609C18.316 4.04297 14.5019 0.429688 9.80142 0.429688C5.09678 0.429688 1.28688 4.04297 1.28688 8.49609C1.28688 12.9492 5.09678 16.5625 9.80142 16.5625C11.8507 16.5625 13.7268 15.8789 15.1946 14.7383L20.0519 19.3359C20.3817 19.6484 20.9136 19.6484 21.2435 19.3359C21.5733 19.0273 21.5733 18.5195 21.2435 18.2109ZM9.80142 14.957C6.03688 14.957 2.97742 12.0586 2.97742 8.49609C2.97742 4.93359 6.03688 2.03125 9.80142 2.03125C13.5618 2.03125 16.6254 4.93359 16.6254 8.49609C16.6254 12.0586 13.5618 14.957 9.80142 14.957Z"
+                fill="#718EBF"
               />
-            </clipPath>
-          </defs>
-        </svg>
-      </button>
-      <button>
+            </g>
+            <defs>
+              <clipPath id="clip0_105_455">
+                <rect
+                  width="21.1111"
+                  height="20"
+                  fill="white"
+                  transform="translate(0.833328)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+        <input
+          type="text"
+          name="search"
+          placeholder="Search for something"
+          id="search"
+        />
+      </div>
+      <button class="nav-settings">
         <svg
           width="28"
           height="25"
           viewBox="0 0 28 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="icon icon--settings"
         >
           <g clip-path="url(#clip0_105_443)">
             <path
@@ -108,13 +118,14 @@
           </defs>
         </svg>
       </button>
-      <button>
+      <button class="nav-notification">
         <svg
           width="27"
           height="25"
           viewBox="0 0 27 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="icon icon--notification"
         >
           <path
             d="M12.5221 25C10.2495 25 8.39886 23.2479 8.39886 21.0938C8.39886 20.6625 8.76831 20.3125 9.22352 20.3125C9.67873 20.3125 10.0482 20.6625 10.0482 21.0938C10.0482 22.3866 11.1587 23.4375 12.5221 23.4375C13.8855 23.4375 14.9961 22.3866 14.9961 21.0938C14.9961 20.6625 15.3655 20.3125 15.8207 20.3125C16.2759 20.3125 16.6454 20.6625 16.6454 21.0938C16.6454 23.2479 14.795 25 12.5221 25Z"
@@ -130,16 +141,21 @@
           />
         </svg>
       </button>
-      <img src="images/kate-profile-img.png" alt="Kate profile picture" />
+      <img
+        src="images/kate-profile-img.png"
+        alt="Kate profile picture"
+        class="profile-img nav-profile-img"
+      />
     </nav>
-    <aside>
-      <div>
+    <aside class="sidebar">
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_425)">
             <path
@@ -153,15 +169,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Dashboard</p>
+        <p class="side-option">Dashboard</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_393)">
             <path
@@ -191,16 +208,16 @@
             </clipPath>
           </defs>
         </svg>
-
-        <p>Transactions</p>
+        <p class="side-option">Transactions</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_414)">
             <path
@@ -218,15 +235,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Accounts</p>
+        <p class="side-option">Accounts</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_382)">
             <path
@@ -264,15 +282,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Investments</p>
+        <p class="side-option">Investments</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="26"
           height="26"
           viewBox="0 0 26 26"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_376)">
             <path
@@ -298,15 +317,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Credit Cards</p>
+        <p class="side-option">Credit Cards</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_401)">
             <path
@@ -328,15 +348,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Loans</p>
+        <p class="side-option">Loans</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_355)">
             <path
@@ -370,15 +391,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Services</p>
+        <p class="side-option">Services</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_417)">
             <path
@@ -408,15 +430,16 @@
             </clipPath>
           </defs>
         </svg>
-        <p>My Privileges</p>
+        <p class="side-option">My Privileges</p>
       </div>
-      <div>
+      <div class="side-menu">
         <svg
           width="25"
           height="25"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="side-icon"
         >
           <g clip-path="url(#clip0_78_374)">
             <path
@@ -430,18 +453,19 @@
             </clipPath>
           </defs>
         </svg>
-        <p>Settings</p>
+        <p class="side-option">Settings</p>
       </div>
     </aside>
-    <main>
+    <main class="container">
       <div class="summary">
-        <div>
+        <div class="summary-box summary-box--balance">
           <svg
             width="30"
             height="30"
             viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="summary-icon"
           >
             <g clip-path="url(#clip0_152_659)">
               <path
@@ -459,16 +483,17 @@
               </clipPath>
             </defs>
           </svg>
-          <p>My Balance</p>
-          <p>$12,750</p>
+          <p class="summary-name">My Balance</p>
+          <p class="summary-value">$12,750</p>
         </div>
-        <div>
+        <div class="summary-box summary-box--income">
           <svg
             width="40"
             height="40"
             viewBox="0 0 40 40"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="summary-icon"
           >
             <path
               d="M23.9143 19.7907C29.4472 19.7907 33.9479 15.3516 33.9479 9.89537C33.9479 4.43909 29.4472 0 23.9143 0C18.3814 0 13.8799 4.43909 13.8799 9.89537C13.8799 15.3516 18.3814 19.7907 23.9143 19.7907ZM22.726 4.07893V3.81018C22.726 3.16252 23.2575 2.6383 23.9143 2.6383C24.5703 2.6383 25.1026 3.16252 25.1026 3.81018V4.08049C26.5168 4.37971 27.5807 5.62191 27.5807 7.10473C27.5807 7.7516 27.0484 8.27661 26.3924 8.27661C25.7356 8.27661 25.204 7.7516 25.204 7.10473C25.204 6.69144 24.8626 6.35472 24.4435 6.35472H23.378C22.9589 6.35472 22.6174 6.69144 22.6174 7.10473C22.6174 7.34145 22.7323 7.56645 22.9256 7.70707L23.9143 8.42895L26.3163 10.1821C27.1054 10.7579 27.5807 11.679 27.5871 12.6477V12.6587C27.5926 13.4852 27.2718 14.2649 26.6824 14.8532C26.245 15.2899 25.6984 15.5829 25.1026 15.7063V15.9806C25.1026 16.6282 24.5703 17.1524 23.9143 17.1524C23.2575 17.1524 22.726 16.6282 22.726 15.9806V15.7102C22.146 15.5884 21.6129 15.3071 21.1819 14.8868C20.5854 14.3063 20.2542 13.5313 20.2494 12.7048C20.2455 12.0579 20.7739 11.5297 21.4299 11.5258H21.4378C22.0906 11.5258 22.6222 12.0462 22.6261 12.6907C22.6277 13.0951 22.9577 13.436 23.3906 13.436C24.0472 13.4321 23.8027 13.4335 24.4546 13.4298C24.8764 13.4265 25.2136 13.0889 25.2104 12.6743V12.6633C25.2088 12.429 25.0939 12.2055 24.9022 12.0657L23.9143 11.3446L21.5115 9.59146C20.7161 9.0102 20.2407 8.08051 20.2407 7.10473C20.2407 5.61878 21.3079 4.3758 22.726 4.07893Z"
@@ -484,16 +509,17 @@
             />
           </svg>
 
-          <p>Income</p>
-          <p>$5,600</p>
+          <p class="summary-name">Income</p>
+          <p class="summary-value">$5,600</p>
         </div>
-        <div>
+        <div class="summary-box summary-box--expense">
           <svg
             width="30"
             height="30"
             viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="summary-icon"
           >
             <path
               d="M25.1322 0C23.4163 0 22.0253 1.39102 22.0253 3.10693V12.3773H27.3602C27.8456 12.3773 28.2391 11.9838 28.2391 11.4984V3.10693C28.2391 1.39102 26.8481 0 25.1322 0V0Z"
@@ -508,16 +534,17 @@
               fill="#FF82AC"
             />
           </svg>
-          <p>Expense</p>
-          <p>$3,460</p>
+          <p class="summary-name">Expense</p>
+          <p class="summary-value">$3,460</p>
         </div>
-        <div>
+        <div class="summary-box summary-box--loans">
           <svg
             width="30"
             height="30"
             viewBox="0 0 30 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="summary-icon"
           >
             <g clip-path="url(#clip0_126_48)">
               <path
@@ -535,29 +562,30 @@
               </clipPath>
             </defs>
           </svg>
-          <p>Total Loans</p>
-          <p>$7,920</p>
+          <p class="summary-name">Total Loans</p>
+          <p class="summary-value">$7,920</p>
         </div>
       </div>
-      <h2>Transactions</h2>
+      <h2 class="header-transactions">Transactions</h2>
       <div class="transactions">
         <div class="transaction-row transaction-row-header">
-          <p>Descriptions</p>
-          <p>Transaction ID</p>
-          <p>Type</p>
-          <p>Card</p>
-          <p>Date</p>
-          <p>Amount</p>
-          <p>Receipt</p>
+          <p class="transaction-row-name">Descriptions</p>
+          <p class="transaction-row-name">Transaction ID</p>
+          <p class="transaction-row-name">Type</p>
+          <p class="transaction-row-name">Card</p>
+          <p class="transaction-row-name">Date</p>
+          <p class="transaction-row-name">Amount</p>
+          <p class="transaction-row-name">Receipt</p>
         </div>
         <div class="transaction-row">
-          <div>
+          <div class="transaction-description">
             <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="transaction-icon"
             >
               <path
                 d="M31 15.8756C31 24.0208 24.2978 30.6481 16 30.6481C7.70218 30.6481 1 24.0208 1 15.8756C1 7.73037 7.70218 1.10303 16 1.10303C24.2978 1.10303 31 7.73037 31 15.8756Z"
@@ -569,23 +597,24 @@
                 fill="#718EBF"
               />
             </svg>
-            <p>Spotify Subscriptions</p>
+            <p class="transaction-name">Spotify Subscriptions</p>
           </div>
-          <p>#12345678</p>
-          <p>Shopping</p>
-          <p>1234****</p>
-          <p>28 Jan, 12.30 AM</p>
-          <p>-$2,500</p>
-          <button>Download</button>
+          <p class="transaction-id">#12345678</p>
+          <p class="transaction-type">Shopping</p>
+          <p class="transaction-card">1234****</p>
+          <p class="transaction-date">28 Jan, 12.30 AM</p>
+          <p class="transaction-amount">-$2,500</p>
+          <button class="transaction-receipt">Download</button>
         </div>
         <div class="transaction-row">
-          <div>
+          <div class="transaction-description">
             <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="transaction-icon"
             >
               <path
                 d="M31 15.8756C31 24.0208 24.2978 30.6481 16 30.6481C7.70218 30.6481 1 24.0208 1 15.8756C1 7.73037 7.70218 1.10303 16 1.10303C24.2978 1.10303 31 7.73037 31 15.8756Z"
@@ -597,23 +626,24 @@
                 fill="#718EBF"
               />
             </svg>
-            <p>Freepik Sales</p>
+            <p class="transaction-name"></p>>Freepik Sales</p>
           </div>
-          <p>#12345678</p>
-          <p>Transfer</p>
-          <p>1234****</p>
-          <p>25 Jan, 10.40 PM</p>
-          <p>+$750</p>
-          <button>Download</button>
+          <p class="transaction-id">#12345678</p>
+          <p class="transaction-type">Transfer</p>
+          <p class="transaction-card">1234****</p>
+          <p class="transaction-date">25 Jan, 10.40 PM</p>
+          <p class="transaction-amount">+$750</p>
+          <button class="transaction-receipt">Download</button>
         </div>
         <div class="transaction-row">
-          <div>
+          <div class="transaction-description">
             <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="transaction-icon"
             >
               <path
                 d="M31 15.8756C31 24.0208 24.2978 30.6481 16 30.6481C7.70218 30.6481 1 24.0208 1 15.8756C1 7.73037 7.70218 1.10303 16 1.10303C24.2978 1.10303 31 7.73037 31 15.8756Z"
@@ -625,23 +655,24 @@
                 fill="#718EBF"
               />
             </svg>
-            <p>Mobile Services</p>
+            <p class="transaction-name">Mobile Services</p>
           </div>
-          <p>#12345678</p>
-          <p>Service</p>
-          <p>1234****</p>
-          <p>20 Jan, 10.40 PM</p>
-          <p>-$150</p>
-          <button>Download</button>
+          <p class="transaction-id">#12345678</p>
+          <p class="transaction-type">Service</p>
+          <p class="transaction-card">1234****</p>
+          <p class="transaction-date">20 Jan, 10.40 PM</p>
+          <p class="transaction-amount">-$150</p>
+          <button class="transaction-receipt">Download</button>
         </div>
         <div class="transaction-row">
-          <div>
+          <div class="transaction-description">
             <svg
               width="32"
               height="32"
               viewBox="0 0 32 32"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="transaction-icon"
             >
               <path
                 d="M31 15.8756C31 24.0208 24.2978 30.6481 16 30.6481C7.70218 30.6481 1 24.0208 1 15.8756C1 7.73037 7.70218 1.10303 16 1.10303C24.2978 1.10303 31 7.73037 31 15.8756Z"
@@ -653,52 +684,53 @@
                 fill="#718EBF"
               />
             </svg>
-            <p>Wilson</p>
+            <p class="transaction-name">Wilson</p>
           </div>
-          <p>#12345678</p>
-          <p>Transfer</p>
-          <p>1234****</p>
-          <p>15 Jan, 3.29 PM</p>
-          <p>-$1050</p>
-          <button>Download</button>
+          <p class="transaction-id">#12345678</p>
+          <p class="transaction-type">Transfer</p>
+          <p class="transaction-card">1234****</p>
+          <p class="transaction-date">15 Jan, 3.29 PM</p>
+          <p class="transaction-amount">-$1050</p>
+          <button class="transaction-receipt">Download</button>
         </div>
       </div>
       <div class="services">
-        <div class="transfer">
-          <h2>Quick Transfer</h2>
-          <div>
-            <form>
+        <div class="transfer-service">
+          <h2 class="transfer-header">Quick Transfer</h2>
+          <div class="transfer-data">
+            <form class="transfer-form">
               <select id="transfer-to" name="transfer-to">
-                <option>Livia Bator</option>
-                <option>Randy Press</option>
-                <option>Ryan Workman</option>
+                <option class="to-option">Livia Bator</option>
+                <option class="to-option">Randy Press</option>
+                <option class="to-option">Ryan Workman</option>
               </select>
-              <select>
-                <option>Food</option>
-                <option>Travel</option>
-                <option>Gift</option>
-                <option>Other</option>
+              <select id="transfer-for" name="transfer-for">
+                <option class="for-option">Food</option>
+                <option class="for-option">Travel</option>
+                <option class="for-option">Gift</option>
+                <option class="for-option">Other</option>
               </select>
-              <input type="number" name="number" placeholder="250.50" />
-              <button>Send</button>
+              <input type="number" name="number" placeholder="250.50" id="input-amount"/>
+              <button class="btn btn-send btn-send--transfer">Send</button>
             </form>
           </div>
         </div>
-        <div class="loan">
-          <div>
-            <img />
-            <p>Kate Bishop</p>
-            <p>CEO</p>
+        <div class="loan-service">
+          <div class="loan-profile">
+            <img src="images/kate-profile-img.png" alt="Kate Bishop profile image" class="profile-img loan-profile-img"/>
+            <p class="profile-name">Kate Bishop</p>
+            <p class="profile-profession">CEO</p>
           </div>
-          <div>
-            <input type="number" name="number" id="loan" />
-            <button>
+          <div class="loan-input">
+            <input type="number" name="number" id="loan-amount" />
+            <button class="btn btn-loan">
               <svg
                 width="28"
                 height="21"
                 viewBox="0 0 28 21"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                class="send-icon"
               >
                 <path
                   d="M27.4258 1.70988C27.5596 1.21127 26.949 0.790845 26.3534 0.972797L0.517261 8.86886C0.206316 8.96391 0.000644737 9.20251 1.51306e-06 9.46896C-0.000641711 9.73545 0.20385 9.9747 0.514366 10.0707L7.77224 12.3148V19.3832C7.77224 19.6814 8.02797 19.9405 8.39032 20.0095C8.75026 20.078 9.12558 19.9409 9.29432 19.6729L12.2961 14.904L19.6215 19.2564C20.0671 19.5212 20.7076 19.3528 20.8698 18.9273C27.7093 0.974214 27.4137 1.75498 27.4258 1.70988ZM21.0482 3.97219L8.46231 11.1481L3.04701 9.47373L21.0482 3.97219ZM9.3803 12.2052L20.3509 5.95028C10.9108 13.9232 11.4039 13.5035 11.3627 13.5479C11.3016 13.6138 11.4691 13.357 9.3803 16.6755V12.2052ZM19.6643 17.6786L13.2162 13.8475L24.8752 4.00051L19.6643 17.6786Z"
@@ -708,12 +740,12 @@
             </button>
           </div>
         </div>
-        <div class="card">
-          <div>
-            <p>Balance</p>
-            <p>$5,756</p>
+        <div class="card-service">
+          <div class="card-balance">
+            <p class="card-balance-header">Balance</p>
+            <p class="card-balance-value">$5,756</p>
           </div>
-          <div>
+          <div class="card-evm">
             <svg
               width="35"
               height="35"
@@ -721,6 +753,7 @@
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink"
+              class="card-icon card-icon--evm"
             >
               <rect width="34.7713" height="34.7713" fill="url(#pattern0)" />
               <defs>
@@ -741,27 +774,28 @@
               </defs>
             </svg>
           </div>
-          <div>
-            <p>CARD HOLDER</p>
-            <p>Kate Bishop</p>
+          <div class="card-holder">
+            <p class="card-holder-header">CARD HOLDER</p>
+            <p class="card-holder-name">Kate Bishop</p>
           </div>
-          <div>
-            <p>VALID THRU</p>
-            <p>12/22</p>
+          <div class="card-validity">
+            <p class="card-validity-header">VALID THRU</p>
+            <p class="card-validity-date">12/22</p>
           </div>
-          <div>
-            <p>3778 **** **** 1234</p>
-            <svg
+          <div class="card-numbers">
+            <p class="card-number">3778 **** **** 1234</p>
+          </div>
+          <svg
               width="44"
               height="30"
               viewBox="0 0 44 30"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              class="card-icon card-icon--company"
             >
               <circle cx="15" cy="15" r="15" fill="white" fill-opacity="0.5" />
               <circle cx="29" cy="15" r="15" fill="white" fill-opacity="0.5" />
             </svg>
-          </div>
         </div>
       </div>
     </main>

@@ -554,7 +554,7 @@
       </div>
       <h2 class="header-transactions">Transactions</h2>
       <div class="transactions">
-        <div class="transaction-row transaction-row-header">
+        <!-- <div class="transaction-row transaction-row-header">
           <p class="transaction-row-name transaction-row-name--description">
             Descriptions
           </p>
@@ -564,7 +564,7 @@
           <p class="transaction-row-name">Date</p>
           <p class="transaction-row-name">Amount</p>
           <p class="transaction-row-name">Receipt</p>
-        </div>
+        </div> -->
         <div class="transaction-row">
           <div class="transaction-description">
             <svg
@@ -585,7 +585,7 @@
                 fill="#718EBF"
               />
             </svg>
-            <p class="transaction-name">Spotify Subscriptions</p>
+            <p class="transaction-name">Transfer</p>
           </div>
           <p class="transaction-id">#12345678</p>
           <p class="transaction-type">Shopping</p>
@@ -614,7 +614,7 @@
                 fill="#718EBF"
               />
             </svg>
-            <p class="transaction-name">Freepik Sales</p>
+            <p class="transaction-name">Food</p>
           </div>
           <p class="transaction-id">#12345678</p>
           <p class="transaction-type">Transfer</p>
@@ -643,7 +643,7 @@
                 fill="#718EBF"
               />
             </svg>
-            <p class="transaction-name">Mobile Services</p>
+            <p class="transaction-name">Other</p>
           </div>
           <p class="transaction-id">#12345678</p>
           <p class="transaction-type">Service</p>
@@ -672,7 +672,7 @@
                 fill="#718EBF"
               />
             </svg>
-            <p class="transaction-name">Wilson</p>
+            <p class="transaction-name">Transfer</p>
           </div>
           <p class="transaction-id">#12345678</p>
           <p class="transaction-type">Transfer</p>
@@ -687,24 +687,33 @@
           <h2 class="transfer-header">Quick Transfer</h2>
           <div class="transfer-data">
             <form class="transfer-form">
-              <select id="transfer-to" name="transfer-to">
-                <option class="to-option">Livia Bator</option>
-                <option class="to-option">Randy Press</option>
-                <option class="to-option">Ryan Workman</option>
-              </select>
-              <select id="transfer-for" name="transfer-for">
-                <option class="for-option">Food</option>
-                <option class="for-option">Travel</option>
-                <option class="for-option">Gift</option>
-                <option class="for-option">Other</option>
-              </select>
-              <input
-                type="number"
-                name="number"
-                placeholder="250.50"
-                id="input-amount"
-              />
-              <button class="btn btn-send btn-send--transfer">Send</button>
+              <div class="transfer-details">
+                <label id="label">Tranfer To</label>
+                <select id="transfer-to" name="transfer-to">
+                  <option class="to-option">Livia Bator</option>
+                  <option class="to-option">Randy Press</option>
+                  <option class="to-option">Ryan Workman</option>
+                </select>
+              </div>
+              <div class="transfer-details">
+                <label id="label">Tranfer Type</label>
+                <select id="transfer-for" name="transfer-for">
+                  <option class="for-option">Food</option>
+                  <option class="for-option">Travel</option>
+                  <option class="for-option">Gift</option>
+                  <option class="for-option">Other</option>
+                </select>
+              </div>
+              <div class="transfer-details">
+                <label id="label">Write Amount</label>
+                <input
+                  type="number"
+                  name="number"
+                  placeholder="250.50"
+                  id="input-amount"
+                />
+                <button class="btn btn-send btn-send--transfer">Send</button>
+              </div>
             </form>
           </div>
         </div>

@@ -167,7 +167,7 @@ body {
 /* Main */
 .container {
   background-color: #f5f7fa;
-  padding: 3rem 2rem 3rem 4rem;
+  padding: 3rem 4rem 3rem 4rem;
   height: 67rem;
 }
 
@@ -175,21 +175,19 @@ body {
 .summary {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  margin-bottom: 8rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
 }
 
 .summary-box {
-  width: 25.5rem;
+  width: 27.5rem;
   height: 12rem;
   border-radius: 2.5rem;
   background-color: #fff;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  justify-items: center;
-  align-content: center;
+  justify-content: center;
+  gap: 2.5rem;
 }
 
 .summary-icon-box {
@@ -214,6 +212,13 @@ body {
 }
 .summary-icon-box--loans {
   background-color: #dcfaf8;
+}
+
+.summary-text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
 .summary-name {

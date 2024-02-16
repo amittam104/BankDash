@@ -54,3 +54,35 @@ const inputLoanRequest = document.querySelector("#loan-amount");
 const btnNavSettings = document.querySelector(".btn-nav--settings");
 const btnTransferAmount = document.querySelector(".btn-send--transfer");
 const btnLoanRequest = document.querySelector(".btn-loan");
+
+// Functions
+
+// Display Summary
+const calcDisplaySummary = function (acc) {
+  const balance = acc.reduce((acc, curr) => acc + curr);
+
+  labelBalanceSummary.textContent = `$${balance}`;
+
+  const income = acc.filter((mov) => mov > 0).reduce((acc, curr) => acc + curr);
+
+  labelIncomeSummary.textContent = `$${income}`;
+
+  const expense = acc
+    .filter((mov) => mov < 0)
+    .reduce((acc, curr) => acc + curr);
+
+  labelExpenseSummary.textContent = `$${Math.abs(expense)}`;
+};
+
+calcDisplaySummary(account1.movements);
+
+// Display Loans
+const calcDisplayLoans = function (acc) {
+  const loans = acc.reduce((acc, curr) => acc + curr);
+
+  labelLoansSummary.textContent = `$${loans}`;
+};
+
+calcDisplayLoans(account1.loans);
+
+// Display Movements

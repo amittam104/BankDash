@@ -319,6 +319,16 @@ body {
   width: 15%;
 }
 
+.transaction-amount--withdrawl {
+  color: #fe5c73;
+  font-weight: 500;
+}
+
+.transaction-amount--deposit {
+  color: #16dbaa;
+  font-weight: 500;
+}
+
 .btn-transaction {
   border: none;
   width: 10.5rem;

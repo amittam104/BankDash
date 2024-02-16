@@ -30,3 +30,27 @@ const account4 = {
 };
 
 const accounts = [account1, account2, account3, account4];
+
+// Variables
+const labelBalanceSummary = document.querySelector(".summary-value--balance");
+const labelIncomeSummary = document.querySelector(".summary-value--income");
+const labelExpenseSummary = document.querySelector(".summary-value--expense");
+const labelLoansSummary = document.querySelector(".summary-value--loans");
+const labelTransactionFor = document.querySelector(".transaction-name");
+const labelTransactionAmount = document.querySelector(".transaction-amount");
+const labelProfileName = document.querySelector(".profile-name");
+const labelProfileProfession = document.querySelector(".profile-profession");
+const labelCardBalance = document.querySelector(".card-balance-value");
+const labelCardName = document.querySelector(".card-holder-name");
+
+const containerApp = document.querySelector(".container");
+const containerTransactions = document.querySelector(".transactions");
+
+const inputTransferTo = document.querySelector("#transfer-to");
+const inputTransferFor = document.querySelector("#transfer-for");
+const inputTransferAmount = document.querySelector("#input-amount");
+const inputLoanRequest = document.querySelector("#loan-amount");
+
+const btnNavSettings = document.querySelector(".btn-nav--settings");
+const btnTransferAmount = document.querySelector(".btn-send--transfer");
+const btnLoanRequest = document.querySelector(".btn-loan");

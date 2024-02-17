@@ -156,6 +156,18 @@ const calcDisplayCard = function (acc) {
   labelCardName.textContent = cardName;
 };
 
+const displayUI = function (acc) {
+  calcDisplaySummary(acc.movements);
+
+  calcDisplayLoans(acc.loans);
+
+  calcDisplayMovements(acc.movements);
+
+  calcDisplayProfileLoan(acc);
+
+  calcDisplayCard(acc);
+};
+
 // Implementing Log in
 let currentAccount;
 const logInDashboard = function (accounts) {
@@ -168,15 +180,7 @@ const logInDashboard = function (accounts) {
   });
 
   if (currentAccount?.pin === +inputPassword.value) {
-    calcDisplaySummary(currentAccount.movements);
-
-    calcDisplayLoans(currentAccount.loans);
-
-    calcDisplayMovements(currentAccount.movements);
-
-    calcDisplayProfileLoan(currentAccount);
-
-    calcDisplayCard(currentAccount);
+    displayUI(currentAccount);
   }
 };
 
@@ -191,4 +195,33 @@ btnLogIn.addEventListener("click", function (e) {
 
   containerLogIn.style.display = "none";
   containerApp.classList.remove("hidden");
+});
+
+// Transfer Amount
+btnTransferAmount.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const tranferAmount = +inputTransferAmount.value;
+  const transferAccount = inputTransferTo.value;
+  const tranferFor = inputTransferFor.value;
+
+  /*
+  1. Value should be more than 0
+  2. Can't transfer to self
+  3. Both options should be selected. They can't be balnk
+  4. Amount can't be bank 
+  */
+  if (
+    tranferAmount > 0 &&
+    transferAccount !== currentAccount.owner &&
+    transferAccount &&
+    tranferFor &&
+    tranferAmount
+  ) {
+    // 1. Remove amoount from current account.
+    // 2. Update the UI
+    // 3. Add amount to tranfered account movements
+    currentAccount.movements.push(-tranferAmount);
+    displayUI(currentAccount);
+  }
 });

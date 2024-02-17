@@ -567,10 +567,6 @@ body {
   background-image: linear-gradient(175deg, #4c49ed, #0a06f4);
 }
 
-.container {
-  display: none;
-}
-
 /* Log in */
 .log-in {
   position: relative;
@@ -634,4 +630,8 @@ body {
   color: #343c6a;
   font-weight: 500;
   border: 2px solid #8ba3cb;
+}
+
+.hidden {
+  display: none;
 }

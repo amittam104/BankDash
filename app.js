@@ -12,7 +12,7 @@ const account1 = {
 const account2 = {
   owner: "Livia Bator",
   job: "Marketing Head",
-  movements: [-200, 657, 790, -654, 54, -5500, 358, 581],
+  movements: [-200, 657, 790, -654, 54, -500, 358, 581],
   pin: 2222,
   loans: [4000],
 };
@@ -50,15 +50,19 @@ const labelCardName = document.querySelector(".card-holder-name");
 
 const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
+const containerLogIn = document.querySelector(".login-box");
 
 const inputTransferTo = document.querySelector("#transfer-to");
 const inputTransferFor = document.querySelector("#transfer-for");
 const inputTransferAmount = document.querySelector("#input-amount");
 const inputLoanRequest = document.querySelector("#loan-amount");
+const inputUsername = document.getElementById("username");
+const inputPassword = document.getElementById("password");
 
 const btnNavSettings = document.querySelector(".btn-nav--settings");
 const btnTransferAmount = document.querySelector(".btn-send--transfer");
 const btnLoanRequest = document.querySelector(".btn-loan");
+const btnLogIn = document.querySelector(".btn-log-in");
 
 // Functions
 
@@ -79,16 +83,12 @@ const calcDisplaySummary = function (acc) {
   labelExpenseSummary.textContent = `$${Math.abs(expense)}`;
 };
 
-calcDisplaySummary(account1.movements);
-
 // Display Loans
 const calcDisplayLoans = function (acc) {
   const loans = acc.reduce((acc, curr) => acc + curr);
 
   labelLoansSummary.textContent = `$${loans}`;
 };
-
-calcDisplayLoans(account1.loans);
 
 // Display Movements
 const calcDisplayMovements = function (acc) {
@@ -137,7 +137,6 @@ const calcDisplayMovements = function (acc) {
   });
 };
 // calcDisplayMovements(account1.movements);
-calcDisplayMovements(account1.movements);
 
 // Display Profile - Loan
 const calcDisplayProfileLoan = function (acc) {
@@ -147,7 +146,6 @@ const calcDisplayProfileLoan = function (acc) {
   labelProfileName.textContent = profileName;
   labelProfileProfession.textContent = jobTitle;
 };
-calcDisplayProfileLoan(account1);
 
 // Display Card
 const calcDisplayCard = function (acc) {
@@ -158,4 +156,39 @@ const calcDisplayCard = function (acc) {
   labelCardName.textContent = cardName;
 };
 
-calcDisplayCard(account1);
+// Implementing Log in
+let currentAccount;
+const logInDashboard = function (accounts) {
+  accounts.forEach((acc) => {
+    acc.username = acc.owner.toLowerCase().replace(" ", "");
+
+    currentAccount = accounts.find(
+      (acc) => acc.username === inputUsername.value
+    );
+  });
+
+  if (currentAccount?.pin === +inputPassword.value) {
+    calcDisplaySummary(currentAccount.movements);
+
+    calcDisplayLoans(currentAccount.loans);
+
+    calcDisplayMovements(currentAccount.movements);
+
+    calcDisplayProfileLoan(currentAccount);
+
+    calcDisplayCard(currentAccount);
+  }
+};
+
+// Click Events
+// Log in
+btnLogIn.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  logInDashboard(accounts);
+
+  console.log(currentAccount);
+
+  containerLogIn.style.display = "none";
+  containerApp.classList.remove("hidden");
+});

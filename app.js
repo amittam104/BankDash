@@ -47,6 +47,8 @@ const labelProfileName = document.querySelector(".profile-name");
 const labelProfileProfession = document.querySelector(".profile-profession");
 const labelCardBalance = document.querySelector(".card-balance-value");
 const labelCardName = document.querySelector(".card-holder-name");
+const labelProfileImage = document.querySelector(".profile-img");
+const labelLoanProfileImage = document.querySelector(".loan-profile-img");
 
 const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
@@ -182,6 +184,12 @@ const logInDashboard = function (accounts) {
 
   if (currentAccount?.pin === +inputPassword.value) {
     displayUI(currentAccount);
+
+    const profileImage = currentAccount.owner.split(" ")[0];
+    console.log(profileImage);
+
+    labelProfileImage.src = `images/${profileImage}.png`;
+    labelLoanProfileImage.src = `images/${profileImage}.png`;
   }
 };
 
@@ -264,6 +272,9 @@ btnLogOut.addEventListener("click", function (e) {
 
   containerLogIn.style.display = "block";
   containerApp.classList.add("hidden");
+
+  labelProfileImage.src = "images/icons8-person-64.png";
+  labelLoanProfileImage.src = "images/icons8-person-64.png";
 
   inputUsername.value = "";
   inputPassword.value = "";

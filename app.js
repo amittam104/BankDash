@@ -63,6 +63,7 @@ const btnNavSettings = document.querySelector(".btn-nav--settings");
 const btnTransferAmount = document.querySelector(".btn-send--transfer");
 const btnLoanRequest = document.querySelector(".btn-loan");
 const btnLogIn = document.querySelector(".btn-log-in");
+const btnLogOut = document.querySelector(".btn-nav--log-out");
 
 // Functions
 
@@ -201,9 +202,17 @@ btnLogIn.addEventListener("click", function (e) {
 btnTransferAmount.addEventListener("click", function (e) {
   e.preventDefault();
 
-  const tranferAmount = +inputTransferAmount.value;
-  const transferAccount = inputTransferTo.value;
-  const tranferFor = inputTransferFor.value;
+  const transferAmount = +inputTransferAmount.value;
+  const transferAccountOwner = inputTransferTo.value
+    .toLowerCase()
+    .replace(" ", "");
+  const transferFor = inputTransferFor.value;
+
+  const transferAccount = accounts.find(
+    (acc) => acc.username === transferAccountOwner
+  );
+
+  console.log(transferAccount);
 
   /*
   1. Value should be more than 0
@@ -212,16 +221,50 @@ btnTransferAmount.addEventListener("click", function (e) {
   4. Amount can't be bank 
   */
   if (
-    tranferAmount > 0 &&
-    transferAccount !== currentAccount.owner &&
-    transferAccount &&
-    tranferFor &&
-    tranferAmount
+    transferAmount > 0 &&
+    transferAccountOwner !== currentAccount.username &&
+    transferAccountOwner &&
+    transferFor &&
+    transferAmount
   ) {
     // 1. Remove amoount from current account.
     // 2. Update the UI
     // 3. Add amount to tranfered account movements
-    currentAccount.movements.push(-tranferAmount);
+
+    currentAccount.movements.push(-transferAmount);
+    transferAccount.movements.push(transferAmount);
     displayUI(currentAccount);
+
+    inputTransferAmount.value =
+      inputTransferTo.value =
+      inputTransferFor.value =
+        "";
+
+    inputTransferAmount.value.blur();
   }
+});
+
+// Request Loan
+btnLoanRequest.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const loanAmount = +inputLoanRequest.value;
+
+  currentAccount.movements.push(loanAmount);
+  currentAccount.loans.push(loanAmount);
+
+  displayUI(currentAccount);
+
+  inputLoanRequest.value = "";
+});
+
+// Log out
+btnLogOut.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  containerLogIn.style.display = "block";
+  containerApp.classList.add("hidden");
+
+  inputUsername.value = "";
+  inputPassword.value = "";
 });

@@ -114,7 +114,7 @@ body {
 }
 
 .btn-nav--settings,
-.btn-nav--notification {
+.btn-nav--log-out {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;

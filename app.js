@@ -14,8 +14,8 @@ const account1 = {
     "2024-02-01T10:17:24.185Z",
     "2024-02-08T14:11:59.604Z",
     "2024-02-12T17:01:17.194Z",
-    "2024-02-16T14:01:17.194Z",
-    "2024-02-17T10:51:36.790Z",
+    "2024-02-15T14:01:17.194Z",
+    "2024-02-16T10:51:36.790Z",
   ],
 };
 
@@ -160,14 +160,38 @@ const calcDisplayMovements = function (acc) {
   acc.movements.forEach((mov, i) => {
     const movType = mov > 0 ? "deposit" : "withdrawl";
 
-    const dates = new Date(acc.movementsDates[i]);
-    const year = dates.getFullYear();
-    const month = dates.getMonth();
-    const day = `${dates.getDate()}`.padStart(2, 0);
-    const hour = `${dates.getHours()}`.padStart(2, 0);
-    const min = `${dates.getMinutes()}`.padStart(2, 0);
+    const daysDifference = function (date) {
+      const calcDays = (date1, date2) =>
+        Math.floor(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
 
-    const displayDate = `${day} ${months[month]} ${year}, ${hour}:${min}`;
+      const calcDisplayDates = calcDays(
+        new Date().getTime(),
+        new Date(date).getTime()
+      );
+
+      console.log(new Date().getTime());
+      console.log(new Date(date).getTime());
+      console.log(calcDisplayDates);
+
+      if (calcDisplayDates === 0) return "Today";
+      if (calcDisplayDates === 1) return "Yesterday";
+      if (calcDisplayDates === 2) return "2 Days Ago";
+      if (calcDisplayDates === 3) return "3 Days Ago";
+      if (calcDisplayDates > 3 && calcDisplayDates < 7) return "This week";
+      if (calcDisplayDates > 7 && calcDisplayDates < 14) return "Last week";
+      else {
+        const dates = new Date(acc.movementsDates[i]);
+        const year = dates.getFullYear();
+        const month = dates.getMonth();
+        const day = `${dates.getDate()}`.padStart(2, 0);
+        const hour = `${dates.getHours()}`.padStart(2, 0);
+        const min = `${dates.getMinutes()}`.padStart(2, 0);
+
+        return `${day} ${months[month]} ${year}, ${hour}:${min}`;
+      }
+    };
+
+    const days = daysDifference(acc.movementsDates[i]);
 
     const html = `<div class="transaction-row">
   <div class="transaction-description">
@@ -194,7 +218,7 @@ const calcDisplayMovements = function (acc) {
   <p class="transaction-id">${12345678}</p>
   <p class="transaction-type">Transfer</p>
   <p class="transaction-card">1234****</p>
-  <p class="transaction-date">${displayDate}</p>
+  <p class="transaction-date">${days}</p>
   <p class="transaction-amount transaction-amount--${movType}">
     $${mov}
   </p>

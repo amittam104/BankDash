@@ -120,6 +120,13 @@ body {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.btn-nav--settings:hover,
+.btn-nav--log-out:hover {
+  cursor: pointer;
+  background: #d3d9eb;
 }
 
 .icon-log-out {
@@ -426,6 +433,13 @@ body {
   background: #1814f3;
   border-radius: 10rem;
   color: #fff;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.btn-send--transfer:hover {
+  cursor: pointer;
+  background: #123288;
+  color: #f5f7fa;
 }
 
 .request-loan {
@@ -491,6 +505,13 @@ body {
   border-radius: 50rem;
   color: #fff;
   margin-top: -0.8rem;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.btn-loan:hover {
+  cursor: pointer;
+  background: #123288;
+  color: #f5f7fa;
 }
 
 .send-icon {
@@ -622,7 +643,14 @@ body {
   background: #1814f3;
   border-radius: 50rem;
   color: #fff;
+  transition: background-color 0.5s ease, color 0.5s ease;
   /* margin-top: -0.8rem; */
+}
+
+.btn-log-in:hover {
+  cursor: pointer;
+  background: #123288;
+  color: #f5f7fa;
 }
 
 #username::placeholder,

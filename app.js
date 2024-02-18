@@ -7,6 +7,16 @@ const account1 = {
   movements: [2000, 5253, -1790, -500, 50, -158, 240, 587],
   pin: 1111,
   loans: [500, 150],
+  movementsDates: [
+    "2023-11-18T21:31:17.178Z",
+    "2023-12-23T07:42:02.383Z",
+    "2024-01-28T09:15:04.904Z",
+    "2024-02-01T10:17:24.185Z",
+    "2024-02-08T14:11:59.604Z",
+    "2024-02-12T17:01:17.194Z",
+    "2024-02-16T14:01:17.194Z",
+    "2024-02-17T10:51:36.790Z",
+  ],
 };
 
 const account2 = {
@@ -15,6 +25,16 @@ const account2 = {
   movements: [-200, 657, 790, -654, 54, -500, 358, 581],
   pin: 2222,
   loans: [4000],
+  movementsDates: [
+    "2023-11-18T21:31:17.178Z",
+    "2023-12-23T07:42:02.383Z",
+    "2024-01-28T09:15:04.904Z",
+    "2024-02-03T10:17:24.185Z",
+    "2024-02-08T14:11:59.604Z",
+    "2024-02-15T17:01:17.194Z",
+    "2024-02-16T17:01:17.194Z",
+    "2024-02-18T10:51:36.790Z",
+  ],
 };
 
 const account3 = {
@@ -23,6 +43,16 @@ const account3 = {
   movements: [2345, 637, -24, 6541, -564, -3577, -65, -254],
   pin: 3333,
   loans: [0],
+  movementsDates: [
+    "2023-11-18T21:31:17.178Z",
+    "2023-12-23T07:42:02.383Z",
+    "2024-01-28T09:15:04.904Z",
+    "2024-02-01T10:17:24.185Z",
+    "2024-02-08T14:11:59.604Z",
+    "2024-02-12T17:01:17.194Z",
+    "2024-02-16T17:01:17.194Z",
+    "2024-02-17T10:51:36.790Z",
+  ],
 };
 
 const account4 = {
@@ -31,6 +61,16 @@ const account4 = {
   movements: [-545, -867, 36657, 54, 574, -1357, 851, -78],
   pin: 4444,
   loans: [10000],
+  movementsDates: [
+    "2023-11-18T21:31:17.178Z",
+    "2023-12-23T07:42:02.383Z",
+    "2024-01-28T09:15:04.904Z",
+    "2024-02-03T10:17:24.185Z",
+    "2024-02-08T14:11:59.604Z",
+    "2024-02-15T17:01:17.194Z",
+    "2024-02-17T17:01:17.194Z",
+    "2024-02-18T10:51:36.790Z",
+  ],
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -50,6 +90,7 @@ const labelCardName = document.querySelector(".card-holder-name");
 const labelProfileImage = document.querySelector(".profile-img");
 const labelLoanProfileImage = document.querySelector(".loan-profile-img");
 const labelWelcomeHeader = document.querySelector(".nav-header");
+const labelTransactionType = document.querySelector(".transaction-type");
 
 const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
@@ -67,6 +108,22 @@ const btnTransferAmount = document.querySelector(".btn-send--transfer");
 const btnLoanRequest = document.querySelector(".btn-loan");
 const btnLogIn = document.querySelector(".btn-log-in");
 const btnLogOut = document.querySelector(".btn-nav--log-out");
+
+// Months Array
+const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 // Functions
 
@@ -98,10 +155,19 @@ const calcDisplayLoans = function (acc) {
 const calcDisplayMovements = function (acc) {
   containerTransactions.innerHTML = "";
 
-  console.log(acc);
+  // Output 25 Jan 2024, 12:30
 
-  acc.forEach((mov, i) => {
+  acc.movements.forEach((mov, i) => {
     const movType = mov > 0 ? "deposit" : "withdrawl";
+
+    const dates = new Date(acc.movementsDates[i]);
+    const year = dates.getFullYear();
+    const month = dates.getMonth();
+    const day = `${dates.getDate()}`.padStart(2, 0);
+    const hour = `${dates.getHours()}`.padStart(2, 0);
+    const min = `${dates.getMinutes()}`.padStart(2, 0);
+
+    const displayDate = `${day} ${months[month]} ${year}, ${hour}:${min}`;
 
     const html = `<div class="transaction-row">
   <div class="transaction-description">
@@ -128,7 +194,7 @@ const calcDisplayMovements = function (acc) {
   <p class="transaction-id">${12345678}</p>
   <p class="transaction-type">Transfer</p>
   <p class="transaction-card">1234****</p>
-  <p class="transaction-date">28 Jan, 12.30 AM</p>
+  <p class="transaction-date">${displayDate}</p>
   <p class="transaction-amount transaction-amount--${movType}">
     $${mov}
   </p>
@@ -165,7 +231,7 @@ const displayUI = function (acc) {
 
   calcDisplayLoans(acc.loans);
 
-  calcDisplayMovements(acc.movements);
+  calcDisplayMovements(acc);
 
   calcDisplayProfileLoan(acc);
 
@@ -244,6 +310,10 @@ btnTransferAmount.addEventListener("click", function (e) {
 
     currentAccount.movements.push(-transferAmount);
     transferAccount.movements.push(transferAmount);
+
+    currentAccount.movementsDates.push(new Date().toISOString());
+    transferAccount.movementsDates.push(new Date().toISOString());
+
     displayUI(currentAccount);
 
     inputTransferAmount.value =
@@ -251,7 +321,7 @@ btnTransferAmount.addEventListener("click", function (e) {
       inputTransferFor.value =
         "";
 
-    inputTransferAmount.value.blur();
+    // inputTransferAmount.value.blur();
   }
 });
 
@@ -263,6 +333,8 @@ btnLoanRequest.addEventListener("click", function (e) {
 
   currentAccount.movements.push(loanAmount);
   currentAccount.loans.push(loanAmount);
+
+  currentAccount.movementsDates.push(new Date().toISOString());
 
   displayUI(currentAccount);
 

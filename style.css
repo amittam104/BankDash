@@ -16,6 +16,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 6fr;
   overflow: auto;
+  height: 100vh;
 }
 
 /* Navigation Panel */
@@ -24,8 +25,8 @@ body {
   display: flex;
   align-items: center;
   grid-column: 1 / -1;
-  height: 10rem;
-  padding: 2rem 4rem;
+  height: 8rem;
+  padding: 2rem 2rem;
 }
 
 .logo {
@@ -121,6 +122,10 @@ body {
   border-radius: 50%;
 }
 
+.icon-log-out {
+  width: 2.5rem;
+}
+
 .profile-img {
   width: 4rem;
   /* background-color: #f5f7fa;
@@ -131,6 +136,7 @@ body {
 /* Sidebar */
 .sidebar {
   max-width: 18rem;
+  height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -172,7 +178,6 @@ body {
 .container {
   background-color: #f5f7fa;
   padding: 2rem 4rem 2rem 4rem;
-  height: 100%;
 }
 
 /* Summary */
@@ -180,12 +185,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .summary-box {
   width: 27.5rem;
-  height: 12rem;
+  height: 10rem;
   border-radius: 2.5rem;
   background-color: #fff;
   display: flex;
@@ -584,9 +589,9 @@ body {
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   gap: 2rem;
   height: 25rem;
-  width: 30rem;
+  width: 33rem;
   border-radius: 2.5rem;
-  transform: translate(-50%, -30%);
+  transform: translate(-50%, -50%);
 }
 #username,
 #password {

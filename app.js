@@ -95,6 +95,7 @@ const labelTransactionType = document.querySelector(".transaction-type");
 const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
 const containerLogIn = document.querySelector(".login-box");
+const containerSidebarMobile = document.querySelector(".sidebar");
 
 const inputTransferTo = document.querySelector("#transfer-to");
 const inputTransferFor = document.querySelector("#transfer-for");
@@ -108,6 +109,8 @@ const btnTransferAmount = document.querySelector(".btn-send--transfer");
 const btnLoanRequest = document.querySelector(".btn-loan");
 const btnLogIn = document.querySelector(".btn-log-in");
 const btnLogOut = document.querySelector(".btn-nav--log-out");
+const btnMenuOpen = document.querySelector(".menu-open");
+const btnMenuClose = document.querySelector(".menu-close");
 
 // Months Array
 const months = [
@@ -297,6 +300,7 @@ btnLogIn.addEventListener("click", function (e) {
 
   containerLogIn.style.display = "none";
   containerApp.classList.remove("hidden");
+  btnMenuOpen.style.display = "block";
 });
 
 // Transfer Amount
@@ -379,4 +383,13 @@ btnLogOut.addEventListener("click", function (e) {
 
   inputUsername.value = "";
   inputPassword.value = "";
+});
+
+// Mobile Menu
+btnMenuOpen.addEventListener("click", function () {
+  containerSidebarMobile.style.display = "flex";
+});
+
+btnMenuClose.addEventListener("click", function () {
+  containerSidebarMobile.style.display = "none";
 });

@@ -53,10 +53,14 @@ body {
   margin-right: 30rem;
 }
 
+.menu-open {
+  display: none;
+}
+
 .nav-options {
   display: flex;
   align-items: center;
-  margin-left: 17rem;
+  margin-left: 25rem;
   gap: 2.4rem;
 }
 
@@ -798,144 +802,6 @@ body {
 /* Responsive - 600px */
 
 @media (max-width: 600px) {
-  body {
-    display: block;
-  }
-
-  .log-in {
-    transform: translate(-50%, 25%);
-  }
-
-  .logo {
-    display: none;
-  }
-
-  .bank-name {
-    display: none;
-  }
-
-  .navigation-panel {
-    max-width: 100vw;
-    height: 6rem;
-    padding: 1.5rem 1.5rem;
-  }
-
-  .nav-header {
-    font-size: 1.6rem;
-    margin-right: 0;
-  }
-
-  .nav-options {
-    margin-left: 10rem;
-    gap: 1.8rem;
-  }
-
-  .btn-nav--search {
-    margin-right: -3rem;
-  }
-
-  #search {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
-    padding-left: 0;
-  }
-
-  #search::placeholder {
-    font-size: 0;
-  }
-
-  .btn-nav--settings,
-  .btn-nav--log-out {
-    display: none;
-  }
-
-  .container {
-    background-color: #fff;
-    padding: 2rem 1.2rem;
-    width: 100vw;
-  }
-
-  .summary {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 2fr;
-    row-gap: 2rem;
-    justify-items: center;
-    margin-bottom: 4rem;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .transactions {
-    width: 100%;
-    border: 1px solid #e3e4e6;
-    margin-bottom: 4rem;
-  }
-
-  .transaction-id,
-  .transaction-type,
-  .transaction-card,
-  .transaction-date,
-  .btn-transaction--receipt {
-    display: none;
-  }
-
-  .services {
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-  }
-
-  .summary-box {
-    width: 90%;
-    gap: 1.2rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  }
-
-  .summary-icon-box {
-    width: 5rem;
-    height: 5rem;
-
-    border-radius: 50%;
-  }
-
-  .summary-icon {
-    width: 2.2rem;
-    height: 2.2rem;
-  }
-
-  .summary-name {
-    font-size: 1rem;
-  }
-
-  .summary-value {
-    font-size: 1.8rem;
-  }
-
-  .transfer-data {
-    width: 100%;
-    border: 1px solid #e3e4e6;
-  }
-
-  .request-loan {
-    width: 100%;
-    border: 1px solid #e3e4e6;
-  }
-
-  .loan-service,
-  .card-service {
-    width: 100%;
-  }
-
-  .card-box {
-    width: 100%;
-  }
 }
 
 /* Responsive Mobile - 375px */
@@ -957,6 +823,7 @@ body {
   }
 
   .navigation-panel {
+    justify-content: space-between;
     max-width: 100vw;
     height: 6rem;
     padding: 1.5rem 1.5rem;
@@ -967,8 +834,12 @@ body {
     margin-right: 0;
   }
 
+  .menu-open {
+    display: block;
+  }
+
   .nav-options {
-    margin-left: 10rem;
+    margin-left: 0;
     gap: 1.8rem;
   }
 
@@ -1053,7 +924,7 @@ body {
   }
 
   .summary-name {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .summary-value {
@@ -1065,6 +936,30 @@ body {
     border: 1px solid #e3e4e6;
   }
 
+  .loan-profile-img {
+    width: 6.5rem;
+  }
+
+  .profile-name {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  #loan-amount {
+    padding-left: 0;
+    width: 15rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-loan {
+    width: 7rem;
+    height: 5rem;
+    margin-top: 0;
+  }
+
+  .profile-profession {
+    font-size: 1.6rem;
+  }
   .request-loan {
     width: 100%;
     border: 1px solid #e3e4e6;

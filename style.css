@@ -54,7 +54,7 @@ body {
 }
 
 .menu-open {
-  display: none;
+  display: none !important;
 }
 
 .nav-options {
@@ -837,7 +837,7 @@ body {
   }
 
   .menu-open {
-    display: none;
+    display: block !important;
   }
 
   .menu-close {

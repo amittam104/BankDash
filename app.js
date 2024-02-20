@@ -17,6 +17,8 @@ const account1 = {
     "2024-02-15T14:01:17.194Z",
     "2024-02-16T10:51:36.790Z",
   ],
+  locale: "en-IN",
+  currency: "INR",
 };
 
 const account2 = {
@@ -35,6 +37,8 @@ const account2 = {
     "2024-02-16T17:01:17.194Z",
     "2024-02-18T10:51:36.790Z",
   ],
+  locale: "en-US",
+  currency: "USD",
 };
 
 const account3 = {
@@ -53,6 +57,8 @@ const account3 = {
     "2024-02-16T17:01:17.194Z",
     "2024-02-17T10:51:36.790Z",
   ],
+  locale: "en-GB",
+  currency: "EUR",
 };
 
 const account4 = {
@@ -71,6 +77,8 @@ const account4 = {
     "2024-02-17T17:01:17.194Z",
     "2024-02-18T10:51:36.790Z",
   ],
+  locale: "en-US",
+  currency: "USD",
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -91,6 +99,7 @@ const labelProfileImage = document.querySelector(".profile-img");
 const labelLoanProfileImage = document.querySelector(".loan-profile-img");
 const labelWelcomeHeader = document.querySelector(".nav-header");
 const labelTransactionType = document.querySelector(".transaction-type");
+const labelDate = document.querySelector(".date");
 
 const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
@@ -129,6 +138,8 @@ const months = [
 ];
 
 // Functions
+
+// Feature - Internationalization of dates and numbers
 
 // Display Summary
 const calcDisplaySummary = function (acc) {
@@ -286,6 +297,18 @@ const logInDashboard = function (accounts) {
     labelLoanProfileImage.src = `images/${profileImage}.png`;
 
     labelWelcomeHeader.textContent = `Welcome Back, ${profileImage}!`;
+
+    const dateAndTime = {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+      weekday: "long",
+    };
+
+    labelDate.textContent = new Intl.DateTimeFormat(
+      currentAccount.locale,
+      dateAndTime
+    ).format(new Date());
   }
 };
 

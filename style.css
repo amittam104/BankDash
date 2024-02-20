@@ -274,6 +274,21 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.header-transactions {
+  display: flex;
+  align-items: center;
+}
+
+.as-of {
+  margin-left: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+.date {
+  font-weight: 600;
+}
+
 .transfer-header,
 .loan-header,
 .card-header {

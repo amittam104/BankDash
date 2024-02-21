@@ -195,13 +195,26 @@ const calcDisplayMovements = function (acc) {
       if (calcDisplayDates > 7 && calcDisplayDates < 14) return "Last week";
       else {
         const dates = new Date(acc.movementsDates[i]);
-        const year = dates.getFullYear();
-        const month = dates.getMonth();
-        const day = `${dates.getDate()}`.padStart(2, 0);
-        const hour = `${dates.getHours()}`.padStart(2, 0);
-        const min = `${dates.getMinutes()}`.padStart(2, 0);
+        // const year = dates.getFullYear();
+        // const month = dates.getMonth();
+        // const day = `${dates.getDate()}`.padStart(2, 0);
+        // const hour = `${dates.getHours()}`.padStart(2, 0);
+        // const min = `${dates.getMinutes()}`.padStart(2, 0);
 
-        return `${day} ${months[month]} ${year}, ${hour}:${min}`;
+        // return `${day} ${months[month]} ${year}, ${hour}:${min}`;
+
+        const dateAndTime = {
+          day: "numeric",
+          month: "numeric",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        };
+
+        return new Intl.DateTimeFormat(
+          currentAccount.locale,
+          dateAndTime
+        ).format(dates);
       }
     };
 

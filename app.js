@@ -289,20 +289,26 @@ const displayUI = function (acc) {
   calcDisplayCard(acc);
 };
 
-// Implementing Log in
-let currentAccount;
-const logInDashboard = function (accounts) {
+// Create Username
+const createUserName = function (accounts) {
   accounts.forEach((acc) => {
     acc.username = acc.owner.toLowerCase().replace(" ", "");
-
-    currentAccount = accounts.find(
-      (acc) => acc.username === inputUsername.value
-    );
   });
+};
 
-  if (currentAccount?.pin === +inputPassword.value) {
-    displayUI(currentAccount);
+createUserName(accounts);
 
+// Implementing Log in
+let currentAccount;
+
+// Click Events
+// Log in
+btnLogIn.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find((acc) => acc.username === inputUsername.value);
+
+  if (currentAccount.pin === +inputPassword.value) {
     const profileImage = currentAccount.owner.split(" ")[0];
     console.log(profileImage);
 
@@ -322,21 +328,15 @@ const logInDashboard = function (accounts) {
       currentAccount.locale,
       dateAndTime
     ).format(new Date());
+
+    console.log(currentAccount);
+
+    containerLogIn.style.display = "none";
+    containerApp.classList.remove("hidden");
+    btnMenuOpen.style.display = "block";
+
+    displayUI(currentAccount);
   }
-};
-
-// Click Events
-// Log in
-btnLogIn.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  logInDashboard(accounts);
-
-  console.log(currentAccount);
-
-  containerLogIn.style.display = "none";
-  containerApp.classList.remove("hidden");
-  btnMenuOpen.style.display = "block";
 });
 
 // Transfer Amount
@@ -395,14 +395,16 @@ btnLoanRequest.addEventListener("click", function (e) {
 
   const loanAmount = +inputLoanRequest.value;
 
-  currentAccount.movements.push(loanAmount);
-  currentAccount.loans.push(loanAmount);
+  if (loanAmount > 0) {
+    currentAccount.movements.push(loanAmount);
+    currentAccount.loans.push(loanAmount);
 
-  currentAccount.movementsDates.push(new Date().toISOString());
+    currentAccount.movementsDates.push(new Date().toISOString());
 
-  displayUI(currentAccount);
+    displayUI(currentAccount);
 
-  inputLoanRequest.value = "";
+    inputLoanRequest.value = "";
+  }
 });
 
 // Log out

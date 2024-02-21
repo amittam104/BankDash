@@ -835,11 +835,6 @@ body {
     transform: translate(-43%, 15%);
   }
 
-  .logo {
-    /* position : relative; */
-    /* display: none; */
-  }
-
   .navigation-panel {
     justify-content: space-between;
     max-width: 100vw;

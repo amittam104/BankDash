@@ -105,6 +105,7 @@ const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
 const containerLogIn = document.querySelector(".login-box");
 const containerSidebarMobile = document.querySelector(".sidebar");
+const containerLoginDetails = document.querySelector(".log-in-detail-box");
 
 const inputTransferTo = document.querySelector("#transfer-to");
 const inputTransferFor = document.querySelector("#transfer-for");
@@ -120,6 +121,7 @@ const btnLogIn = document.querySelector(".btn-log-in");
 const btnLogOut = document.querySelector(".btn-nav--log-out");
 const btnMenuOpen = document.querySelector(".menu-open");
 const btnMenuClose = document.querySelector(".menu-close");
+const btnAccountDetails = document.querySelectorAll(".account-number");
 
 // Months Array
 const months = [
@@ -335,6 +337,8 @@ btnLogIn.addEventListener("click", function (e) {
     containerApp.classList.remove("hidden");
     btnMenuOpen.style.display = "block";
 
+    containerLoginDetails.classList.add("hidden");
+
     displayUI(currentAccount);
   }
 });
@@ -430,4 +434,25 @@ btnMenuOpen.addEventListener("click", function () {
 
 btnMenuClose.addEventListener("click", function () {
   containerSidebarMobile.style.display = "none";
+});
+
+// Log in Details Pop up
+btnNavSettings.addEventListener("click", function () {
+  containerLoginDetails.classList.toggle("hidden");
+});
+
+const accountDetailsBox = [...btnAccountDetails];
+console.log(accountDetailsBox);
+
+accountDetailsBox.forEach((detail, i) => {
+  console.log(i, detail);
+
+  detail.addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log(detail);
+
+    document
+      .querySelector(`.log-in-details--${i + 1}`)
+      .classList.toggle("hidden");
+  });
 });

@@ -28,6 +28,7 @@ body {
   grid-column: 1 / -1;
   height: 8rem;
   padding: 2rem 2rem;
+  position: relative;
 }
 
 .logo {
@@ -628,7 +629,7 @@ body {
   /* position: relative;
   top: 50%;
   left: 50%; */
-  margin: 15rem auto;
+  margin: 25rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -698,6 +699,57 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+/* Log in Details */
+
+.log-in-detail-box {
+  position: absolute;
+  top: 8rem;
+  right: 10rem;
+  width: 23rem;
+  padding: 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.log-in-account {
+}
+
+.account-number {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.account-number:hover {
+  color: #123288;
+  text-decoration: underline;
+}
+
+.log-in-details {
+  background-color: #f5f7fa;
+  padding: 1rem;
+  border-radius: 1.2rem;
+}
+.log-in-username {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.log-in-password {
+  font-size: 1.2rem;
+}
+
+.name,
+.pin {
+  font-weight: 600;
 }
 
 /* Responsive Large Tablet - 1340px */

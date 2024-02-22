@@ -280,6 +280,28 @@ body {
   align-items: center;
 }
 
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #343c6a;
+}
+
+.sort-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.arrow-down {
+  display: none;
+}
+
 .as-of {
   margin-left: 1.2rem;
   font-size: 1.3rem;
@@ -1435,6 +1457,13 @@ body {
   .loan-service {
     width: 90%;
   }
+
+  .header-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
 }
 
 /* Responsive Mobile - 375px */
@@ -1625,5 +1654,12 @@ body {
 
   .card-box {
     width: 100%;
+  }
+
+  .header-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
   }
 }

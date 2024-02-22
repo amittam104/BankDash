@@ -100,6 +100,7 @@ const labelLoanProfileImage = document.querySelector(".loan-profile-img");
 const labelWelcomeHeader = document.querySelector(".nav-header");
 const labelTransactionType = document.querySelector(".transaction-type");
 const labelDate = document.querySelector(".date");
+const labelSortArrow = document.querySelector(".sort-arrow");
 
 const containerApp = document.querySelector(".container");
 const containerTransactions = document.querySelector(".transactions");
@@ -122,6 +123,7 @@ const btnLogOut = document.querySelector(".btn-nav--log-out");
 const btnMenuOpen = document.querySelector(".menu-open");
 const btnMenuClose = document.querySelector(".menu-close");
 const btnAccountDetails = document.querySelectorAll(".account-number");
+const btnSort = document.querySelector(".sort");
 
 // Months Array
 const months = [
@@ -187,12 +189,17 @@ const calcDisplayLoans = function (acc) {
 };
 
 // Display Movements
-const calcDisplayMovements = function (acc) {
+const calcDisplayMovements = function (acc, sort = false) {
   containerTransactions.innerHTML = "";
 
   // Output 25 Jan 2024, 12:30
+  console.log(acc.movements);
+  const mov = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
+  console.log(mov);
 
-  acc.movements.forEach((mov, i) => {
+  mov.forEach((mov, i) => {
     const movType = mov > 0 ? "deposit" : "withdrawl";
 
     const daysDifference = function (date) {
@@ -476,4 +483,15 @@ accountDetailsBox.forEach((detail, i) => {
       .querySelector(`.log-in-details--${i + 1}`)
       .classList.toggle("hidden");
   });
+});
+
+// Sort the Movements
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  calcDisplayMovements(currentAccount, !sorted);
+  sorted = !sorted;
+
+  labelSortArrow.classList.toggle("hidden");
 });

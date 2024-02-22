@@ -821,6 +821,197 @@ body {
 /* Responsive - 600px */
 
 @media (max-width: 600px) {
+  body {
+    /* height: 100%; */
+    position: relative;
+  }
+
+  .log-in {
+    top: 0;
+    transform: translate(-43%, 15%);
+  }
+
+  .navigation-panel {
+    justify-content: space-between;
+    max-width: 100vw;
+    height: 6rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .bank-name {
+    display: none;
+  }
+
+  .menu-open {
+    display: block !important;
+  }
+
+  .menu-close {
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-close p {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .icon-close {
+    width: 3rem;
+  }
+
+  .sidebar {
+    position: absolute;
+    width: 40%;
+    height: 135rem;
+    top: 0;
+    margin: 0;
+    /* max-width: 5rem; */
+    background-color: #fff;
+    box-shadow: 0 13px 5px rgba(0, 0, 0, 0.15);
+    display: none;
+  }
+
+  .nav-header {
+    font-size: 1.6rem;
+    margin-right: 10rem;
+  }
+
+  .nav-options {
+    margin-left: 0;
+    gap: 1.8rem;
+  }
+
+  .btn-nav--search {
+    margin-right: -3rem;
+  }
+
+  #search {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    padding-left: 0;
+  }
+
+  #search::placeholder {
+    font-size: 0;
+  }
+
+  .container {
+    background-color: #fff;
+    padding: 2rem 1.2rem;
+    width: 100vw;
+    /* filter: blur(4px); */
+  }
+
+  .summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2fr;
+    row-gap: 2rem;
+    justify-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .highlight {
+    display: none;
+  }
+
+  .transactions {
+    width: 100%;
+    border: 1px solid #e3e4e6;
+    margin-bottom: 4rem;
+  }
+
+  .transaction-id,
+  .transaction-type,
+  .transaction-card,
+  .btn-transaction--receipt {
+    display: none;
+  }
+
+  .transaction-date {
+    width: 30%;
+  }
+
+  .services {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .summary-box {
+    width: 90%;
+    gap: 3.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .summary-icon-box {
+    width: 6rem;
+    height: 6rem;
+
+    border-radius: 50%;
+  }
+
+  .summary-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .summary-name {
+    font-size: 1.6rem;
+  }
+
+  .summary-value {
+    font-size: 2.8rem;
+  }
+
+  .transfer-data {
+    width: 100%;
+    border: 1px solid #e3e4e6;
+  }
+
+  .loan-profile-img {
+    width: 6.5rem;
+  }
+
+  .profile-name {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  #loan-amount {
+    padding-left: 0;
+    width: 15rem;
+    margin-bottom: 1rem;
+  }
+
+  .btn-loan {
+    width: 7rem;
+    height: 5rem;
+    margin-top: 0;
+  }
+
+  .profile-profession {
+    font-size: 1.6rem;
+  }
+  .request-loan {
+    width: 60%;
+    border: 1px solid #e3e4e6;
+  }
+
+  .loan-service,
+  .card-service {
+    width: 100%;
+  }
+
+  .card-box {
+    width: 60%;
+  }
 }
 
 /* Responsive Mobile - 375px */

@@ -142,29 +142,48 @@ const months = [
 // Functions
 
 // Feature - Internationalization of dates and numbers
+const formatCurr = function (value, currency, locale) {
+  const fomratCurrency = {
+    style: "currency",
+    currency: currency,
+  };
 
+  return Intl.NumberFormat(locale, fomratCurrency).format(value);
+};
 // Display Summary
 const calcDisplaySummary = function (acc) {
-  const balance = acc.reduce((acc, curr) => acc + curr);
+  const balance = acc.movements.reduce((acc, curr) => acc + curr);
 
-  labelBalanceSummary.textContent = `$${balance}`;
+  console.log(balance, acc.currency, acc.locale);
 
-  const income = acc.filter((mov) => mov > 0).reduce((acc, curr) => acc + curr);
+  labelBalanceSummary.textContent = formatCurr(
+    balance,
+    acc.currency,
+    acc.locale
+  );
 
-  labelIncomeSummary.textContent = `$${income}`;
+  const income = acc.movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, curr) => acc + curr);
 
-  const expense = acc
+  labelIncomeSummary.textContent = formatCurr(income, acc.currency, acc.locale);
+
+  const expense = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, curr) => acc + curr);
 
-  labelExpenseSummary.textContent = `$${Math.abs(expense)}`;
+  labelExpenseSummary.textContent = formatCurr(
+    Math.abs(expense),
+    acc.currency,
+    acc.locale
+  );
 };
 
 // Display Loans
 const calcDisplayLoans = function (acc) {
-  const loans = acc.reduce((acc, curr) => acc + curr);
+  const loans = acc.loans.reduce((acc, curr) => acc + curr);
 
-  labelLoansSummary.textContent = `$${loans}`;
+  labelLoansSummary.textContent = formatCurr(loans, acc.currency, acc.locale);
 };
 
 // Display Movements
@@ -220,6 +239,8 @@ const calcDisplayMovements = function (acc) {
       }
     };
 
+    const formatedCurrency = formatCurr(mov, acc.currency, acc.locale);
+
     const days = daysDifference(acc.movementsDates[i]);
 
     const html = `<div class="transaction-row">
@@ -249,7 +270,7 @@ const calcDisplayMovements = function (acc) {
   <p class="transaction-card">1234****</p>
   <p class="transaction-date">${days}</p>
   <p class="transaction-amount transaction-amount--${movType}">
-    $${mov}
+    ${formatedCurrency}
   </p>
   <button class="btn-transaction btn-transaction--receipt">
     Download
@@ -280,9 +301,9 @@ const calcDisplayCard = function (acc) {
 };
 
 const displayUI = function (acc) {
-  calcDisplaySummary(acc.movements);
+  calcDisplaySummary(acc);
 
-  calcDisplayLoans(acc.loans);
+  calcDisplayLoans(acc);
 
   calcDisplayMovements(acc);
 

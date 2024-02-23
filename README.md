@@ -6,7 +6,7 @@
 
   <p >
     An awesome, interactive Banking app dashboard with responsive design!
-    <a href="https://github.com/amittam104">View Demo</a>
+    <a href="https://bankdashv2.netlify.app/">View Demo</a>
   </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -52,7 +52,7 @@ This project is built with HTML5, CSS3 and JavaScript.
 
 ## Usage
 
-- Click on the Live Demo. <a href="https://github.com/amittam104">View Demo</a>
+- Click on the Live Demo. <a href="https://bankdashv2.netlify.app/">View Demo</a>
 - Click on the settings icon on the navigation panel on the top right corner.
 - Copy and pasete one of the account username and password into the input field and log in.
 - Play around with Dashboard - Transfer money, Request loan

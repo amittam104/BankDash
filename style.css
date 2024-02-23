@@ -1515,7 +1515,7 @@ body {
   }
 
   .nav-header {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .nav-options {
@@ -1541,7 +1541,18 @@ body {
   }
 
   .btn-nav--settings {
-    display: none;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .btn-nav--log-out {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .icon-log-out,
+  .icon-nav {
+    width: 1.8rem;
   }
 
   .container {
@@ -1588,7 +1599,7 @@ body {
   }
 
   .summary-box {
-    width: 90%;
+    width: 95%;
     gap: 1.2rem;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   }
@@ -1606,11 +1617,11 @@ body {
   }
 
   .summary-name {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .summary-value {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .transfer-data {
@@ -1661,5 +1672,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 1rem;
+  }
+
+  .transaction-amount {
+    width: 35%;
   }
 }

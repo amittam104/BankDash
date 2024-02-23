@@ -1,7 +1,9 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
-  <h3>BankDash</h3>
+
+# BankDash
+
   <p >
     An awesome, interactive Banking app dashboard with responsive design!
     <a href="https://github.com/amittam104">View Demo</a>
@@ -28,11 +30,11 @@
 
 ## About The Project
 
-![Product Name Screen Shot]![Banking app dashboard](BankDash4.png)
+![Banking app dashboard](BankDash4.png)
 
-BankDash is a modern interactive and responsive banking app dashboard. featured with multiple user login, money transfer, loan request, internationalized currency and date-time etc.
+BankDash is a modern interactive and responsive banking app dashboard. Featured with multiple user login, money transfer, loan request, internationalized currency and date-time etc.
 
-Here's why:
+Highlights:
 
 - You can switch between four different accoutns to check the functionality.
 - You can request money via loan and tranfer money to other accounts.

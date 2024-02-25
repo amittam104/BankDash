@@ -44,7 +44,7 @@ Highlights:
 
 ### Built With
 
-This project is built with HTML5, CSS3 and JavaScript.
+The BankDash project is built with HTML5, CSS3 and JavaScript.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
